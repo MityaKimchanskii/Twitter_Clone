@@ -1,0 +1,57 @@
+//
+//  AuthViewModel.swift
+//  Twitter
+//
+//  Created by Mitya Kim on 7/14/23.
+//
+
+import SwiftUI
+import Firebase
+
+
+class AuthViewModel: ObservableObject {
+    
+    @Published var userSession: FirebaseAuth.User?
+    
+    init() {
+        self.userSession = Auth.auth().currentUser
+    }
+    
+    func login(withEmail email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Debug: user failed to sign in: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.userSession = user
+        }
+    }
+    
+    func register(withEmail email: String, password: String, fullname: String, username: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Debug: failed to register user: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.userSession = user
+            
+            let data = ["email": email, "fullname": fullname, "username": username.lowercased(), "uid": user.uid]
+            
+            Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                print("Debug: Did upload user data...")
+            }
+        }
+    }
+    
+    func signOut() {
+        // sets user session to nil local
+        userSession = nil
+        
+        // signs user out on server
+        try? Auth.auth().signOut()
+    }
+}

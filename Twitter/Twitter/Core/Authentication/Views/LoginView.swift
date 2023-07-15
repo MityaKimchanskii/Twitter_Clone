@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         
@@ -36,7 +37,7 @@ struct LoginView: View {
                 CustomInputField(imageName: "envelope", placeholderText: "Email", text: $email)
                 
                 
-                CustomInputField(imageName: "lock", placeholderText: "Password", text: $password)
+                CustomInputField(imageName: "lock", placeholderText: "Password", isSecureField: true, text: $password)
             }
             .padding(.horizontal, 32)
             .padding(.top, 43)
@@ -57,7 +58,7 @@ struct LoginView: View {
             }
             
             Button {
-            
+                viewModel.login(withEmail: email, password: password)
             } label: {
                 Text("Sign In")
                     .font(.headline)
