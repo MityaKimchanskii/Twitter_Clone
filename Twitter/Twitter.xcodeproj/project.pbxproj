@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B5BC7242A6786F500BB0F48 /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BC7232A6786F500BB0F48 /* ProfilePhotoSelectorView.swift */; };
+		3B5BC7272A678ECE00BB0F48 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BC7262A678ECE00BB0F48 /* ImagePicker.swift */; };
 		3BA98A602A5E397C00534650 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA98A5F2A5E397C00534650 /* SideMenuView.swift */; };
 		3BA98A622A5E39A600534650 /* SideMenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA98A612A5E39A600534650 /* SideMenuRowView.swift */; };
 		3BA98A642A5E39BC00534650 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA98A632A5E39BC00534650 /* SideMenuViewModel.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B5BC7232A6786F500BB0F48 /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
+		3B5BC7262A678ECE00BB0F48 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3BA98A5F2A5E397C00534650 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		3BA98A612A5E39A600534650 /* SideMenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuRowView.swift; sourceTree = "<group>"; };
 		3BA98A632A5E39BC00534650 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B5BC7252A678EBA00BB0F48 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3B5BC7262A678ECE00BB0F48 /* ImagePicker.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		3BA98A5C2A5E393500534650 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +209,7 @@
 			children = (
 				3BF35C012A5F91E700530B7F /* LoginView.swift */,
 				3BF35C032A5F91F700530B7F /* RegistrationView.swift */,
+				3B5BC7232A6786F500BB0F48 /* ProfilePhotoSelectorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +233,7 @@
 		3BF40DD42A56807100F9A229 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				3B5BC7252A678EBA00BB0F48 /* Utils */,
 				3BF40DE62A5680D900F9A229 /* Extensions */,
 				3BF40DE52A5680D600F9A229 /* Model */,
 				3BF40DE42A5680D300F9A229 /* Service */,
@@ -447,12 +461,14 @@
 			files = (
 				3BF40DFC2A56894300F9A229 /* MessagesView.swift in Sources */,
 				3BBE423D2A5A4B1C00215BED /* ProfileView.swift in Sources */,
+				3B5BC7272A678ECE00BB0F48 /* ImagePicker.swift in Sources */,
 				3BF35C082A5F98BE00530B7F /* CustomInputField.swift in Sources */,
 				3BF40DD82A56807100F9A229 /* ContentView.swift in Sources */,
 				3BA98A622A5E39A600534650 /* SideMenuRowView.swift in Sources */,
 				3BF40DEF2A56825800F9A229 /* TweetRowView.swift in Sources */,
 				3BBE423F2A5A521E00215BED /* TweetFilterViewModel.swift in Sources */,
 				3BF35C062A5F934600530B7F /* RoundedCorner.swift in Sources */,
+				3B5BC7242A6786F500BB0F48 /* ProfilePhotoSelectorView.swift in Sources */,
 				3BF40DFA2A56891600F9A229 /* NotificationView.swift in Sources */,
 				3BA98A6F2A5E563500534650 /* TextArea.swift in Sources */,
 				3BA98A602A5E397C00534650 /* SideMenuView.swift in Sources */,
