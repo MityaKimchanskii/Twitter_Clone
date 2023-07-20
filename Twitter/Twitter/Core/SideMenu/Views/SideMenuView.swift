@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct SideMenuView: View {
     
@@ -13,49 +14,54 @@ struct SideMenuView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 32) {
-            
-            VStack(alignment: .leading) {
-                Circle()
-                    .frame(width: 48, height: 48)
+        if let user = authViewModel.currentUser {
+            VStack(alignment: .leading, spacing: 32) {
                 
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Dmitrii Kim")
-                        .font(.headline)
+                VStack(alignment: .leading) {
+                    KFImage(URL(string: user.profileImageURL ?? "no image"))
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 48, height: 48)
                     
-                    Text("@iOSDeveloper")
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(user.fullname)
+                            .font(.headline)
+                        
+                        Text("@\(user.username)")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    UserStatsView()
+                        .padding(.vertical)
+                    
                 }
+                .padding(.leading)
                 
-                UserStatsView()
-                    .padding(.vertical)
-                
-            }
-            .padding(.leading)
-            
-            ForEach(SideMenuViewModel.allCases, id: \.rawValue) { viewModel in
-                
-                if viewModel == .profile {
-                    NavigationLink {
-                        ProfileView()
-                    } label: {
-                        SideMenuOptionRowView(viewModel: viewModel)
-                    }
+                ForEach(SideMenuViewModel.allCases, id: \.rawValue) { viewModel in
                     
-                } else if viewModel == .logout {
-                    Button {
-                        authViewModel.signOut()
-                    } label: {
-                        SideMenuOptionRowView(viewModel: viewModel)
-                    }
+                    if viewModel == .profile {
+                        NavigationLink {
+                            ProfileView(user: user)
+                        } label: {
+                            SideMenuOptionRowView(viewModel: viewModel)
+                        }
+                        
+                    } else if viewModel == .logout {
+                        Button {
+                            authViewModel.signOut()
+                        } label: {
+                            SideMenuOptionRowView(viewModel: viewModel)
+                        }
 
-                } else {
-                    SideMenuOptionRowView(viewModel: viewModel)
+                    } else {
+                        SideMenuOptionRowView(viewModel: viewModel)
+                    }
                 }
+                
+                Spacer()
             }
-            
-            Spacer()
         }
     }
 }

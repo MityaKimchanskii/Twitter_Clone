@@ -12,6 +12,7 @@ struct ProfilePhotoSelectorView: View {
     @State private var showImagePicker: Bool = false
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         
@@ -39,9 +40,8 @@ struct ProfilePhotoSelectorView: View {
                 if let profileImage = profileImage {
                     profileImage
                         .resizable()
-                        .renderingMode(.original)
                         .scaledToFill()
-                        .frame(width: 150, height: 150)
+                        .frame(width: 180, height: 180)
                         .padding(.top, 44)
                         .clipShape(Circle())
                 } else {
@@ -50,12 +50,27 @@ struct ProfilePhotoSelectorView: View {
                         .renderingMode(.template)
                         .foregroundColor(Color(.systemBlue))
                         .scaledToFill()
-                        .frame(width: 150, height: 150)
+                        .frame(width: 180, height: 180)
                         .padding(.top, 44)
                 }
             }
             .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(selectedImage: $selectedImage)
+            }
+            
+            if let selectedImage = selectedImage {
+                Button {
+                    viewModel.uploadProfileImage(selectedImage)
+                } label: {
+                    Text("Continue")
+                        .font(.headline)
+                        .foregroundColor(Color.white)
+                        .frame(width: 330, height: 45)
+                        .background(Color(.systemBlue))
+                        .clipShape(Capsule())
+                        .padding()
+                }
+                .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
             }
             
             Spacer()

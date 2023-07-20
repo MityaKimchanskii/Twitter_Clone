@@ -13,9 +13,14 @@ class AuthViewModel: ObservableObject {
     
     @Published var userSession: FirebaseAuth.User?
     @Published var didAuthUser: Bool = false
+    @Published var currentUser: User?
+    private var tempUserSession: FirebaseAuth.User?
+    
+    private let service = UserService()
     
     init() {
         self.userSession = Auth.auth().currentUser
+        self.fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
@@ -38,6 +43,7 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = result?.user else { return }
+            self.tempUserSession = user
             
             let data = ["email": email, "fullname": fullname, "username": username.lowercased(), "uid": user.uid]
             
@@ -53,5 +59,25 @@ class AuthViewModel: ObservableObject {
         
         // signs user out on server
         try? Auth.auth().signOut()
+    }
+    
+    func uploadProfileImage(_ image: UIImage) {
+        guard let uid = tempUserSession?.uid else { return }
+        
+        ImageUploader.uploadImage(image: image) { profileImageURL in
+            Firestore.firestore().collection("users")
+                .document(uid)
+                .updateData(["profileImageURL": profileImageURL]) { _ in
+                    self.userSession = self.tempUserSession
+                }
+        }
+    }
+    
+    func fetchUser() {
+        guard let uid = self.userSession?.uid else { return }
+        
+        service.fetchUser(withUid: uid) { user in
+            self.currentUser = user
+        }
     }
 }
