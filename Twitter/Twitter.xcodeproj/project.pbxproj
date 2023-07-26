@@ -10,6 +10,9 @@
 		3B5BC7242A6786F500BB0F48 /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BC7232A6786F500BB0F48 /* ProfilePhotoSelectorView.swift */; };
 		3B5BC7272A678ECE00BB0F48 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BC7262A678ECE00BB0F48 /* ImagePicker.swift */; };
 		3B5BC7292A679A2E00BB0F48 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BC7282A679A2E00BB0F48 /* ImageUploader.swift */; };
+		3BA0B03D2A70AA3600FAE636 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0B03C2A70AA3600FAE636 /* FeedViewModel.swift */; };
+		3BA0B03F2A70AB1000FAE636 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0B03E2A70AB1000FAE636 /* Tweet.swift */; };
+		3BA0B0412A70C3D800FAE636 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0B0402A70C3D800FAE636 /* ProfileViewModel.swift */; };
 		3BA98A602A5E397C00534650 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA98A5F2A5E397C00534650 /* SideMenuView.swift */; };
 		3BA98A622A5E39A600534650 /* SideMenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA98A612A5E39A600534650 /* SideMenuRowView.swift */; };
 		3BA98A642A5E39BC00534650 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA98A632A5E39BC00534650 /* SideMenuViewModel.swift */; };
@@ -53,6 +56,9 @@
 		3B5BC7232A6786F500BB0F48 /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
 		3B5BC7262A678ECE00BB0F48 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3B5BC7282A679A2E00BB0F48 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		3BA0B03C2A70AA3600FAE636 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		3BA0B03E2A70AB1000FAE636 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		3BA0B0402A70C3D800FAE636 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3BA98A5F2A5E397C00534650 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		3BA98A612A5E39A600534650 /* SideMenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuRowView.swift; sourceTree = "<group>"; };
 		3BA98A632A5E39BC00534650 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				3BBE423E2A5A521E00215BED /* TweetFilterViewModel.swift */,
+				3BA0B0402A70C3D800FAE636 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -304,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				3BAD219F2A68EC16000A7E26 /* User.swift */,
+				3BA0B03E2A70AB1000FAE636 /* Tweet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 		3BF40DEA2A56814E00F9A229 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3BA0B03C2A70AA3600FAE636 /* FeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -489,6 +498,8 @@
 				3BAD219E2A68E9F1000A7E26 /* UserService.swift in Sources */,
 				3B5BC7272A678ECE00BB0F48 /* ImagePicker.swift in Sources */,
 				3BF35C082A5F98BE00530B7F /* CustomInputField.swift in Sources */,
+				3BA0B03F2A70AB1000FAE636 /* Tweet.swift in Sources */,
+				3BA0B03D2A70AA3600FAE636 /* FeedViewModel.swift in Sources */,
 				3BF40DD82A56807100F9A229 /* ContentView.swift in Sources */,
 				3B5BC7292A679A2E00BB0F48 /* ImageUploader.swift in Sources */,
 				3BA98A622A5E39A600534650 /* SideMenuRowView.swift in Sources */,
@@ -516,6 +527,7 @@
 				3BF40DF22A56877600F9A229 /* MainTabView.swift in Sources */,
 				3BA98A662A5E3BB500534650 /* UserStatsView.swift in Sources */,
 				3BF35C042A5F91F700530B7F /* RegistrationView.swift in Sources */,
+				3BA0B0412A70C3D800FAE636 /* ProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

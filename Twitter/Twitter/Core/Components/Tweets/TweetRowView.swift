@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TweetRowView: View {
+    
+    let tweet: Tweet
+    
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -21,21 +24,23 @@ struct TweetRowView: View {
                 // user info & tweet caption
                 VStack(alignment: .leading, spacing: 4) {
                     // user info
-                    HStack {
-                        Text("Bruce Lee")
-                            .font(.subheadline).bold()
-                        
-                        Text("@dragon")
-                            .foregroundColor(Color(.gray))
-                            .font(.caption)
-                        
-                        Text("3w")
-                            .foregroundColor(Color(.gray))
-                            .font(.caption)
+                    if let user = tweet.user {
+                        HStack {
+                            Text(user.fullname)
+                                .font(.subheadline).bold()
+                            
+                            Text(user.username)
+                                .foregroundColor(Color(.gray))
+                                .font(.caption)
+                            
+                            Text("3w")
+                                .foregroundColor(Color(.gray))
+                                .font(.caption)
+                        }
                     }
                     
                     // tweet caption
-                    Text("I believe in Heaven")
+                    Text(tweet.caption)
                         .font(.caption)
                         .multilineTextAlignment(.leading)
                 }
@@ -82,8 +87,8 @@ struct TweetRowView: View {
     }
 }
 
-struct TweetRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        TweetRowView()
-    }
-}
+//struct TweetRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TweetRowView(tweet: .init(caption: "Hello Dima Kim iOS Developer", timestamp: 31T23:59:59.999999999Z, uid: "dkdf", likes: 100000000))
+//    }
+//}
